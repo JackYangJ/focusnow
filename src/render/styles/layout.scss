@@ -1,0 +1,62 @@
+@import "element-theme";
+$sideBarExpandWidth:210px;
+$sideBarWidth:64px;
+$sideBarLogoExpandHeight:235px;
+$sideBarLogoHeight:180px;
+$topHeaderHeight:64px;
+$navigationHeight:38px;
+
+
+$colorBlue: #0bbddb;
+$colorGreen: #05ec8c;
+$colorRed: #ff4e4d;
+$colorBlueGrey: #858c99;
+$colorLightNavy: #3d4457;
+$colorNavy: #2f384b;
+$colorWhite: #f6f2eb;
+$colorBlueGrey--lighter: #c0c9da;
+$colorBlueWhite: #dbe1ef;
+
+$transitionDefault: all 0.3s ease;
+$transitionSnappy: all 0.3s cubic-bezier(0.07, 0.95, 0, 1);
+
+:root {
+  --menu-bg-color: #262F39; // 菜单背景色
+  --top-header-back-color:#FFFFFF; // 头部操作栏背景色
+  --navigation-back-color:linear-gradient(180deg, #A2ABB9 0%, #B4BCC8 100%); // 路由导航栏背景色
+  --breadcrumb-back-color:rgba(0,0,0,0.3); // 面包屑背景色
+  --breadcrumb-active-back-color:#F5F6F7; // 面包屑激活背景色
+  --breadcrumb-text-color:#FFFFFF;// 面包屑字体色
+  --breadcrumb-active-text-color:#3E3A39;// 面包屑激活字体色
+  --menu-text-color:#FFFFFF; // 菜单栏文字颜色
+  --top-header-time-color:#303741; // 顶部时间颜色
+  --color-long-round: #{$colorBlue};
+  --color-short-round: #{$colorGreen};
+  --color-focus-round: #{$colorRed};
+  --color-background: #{$colorNavy};
+  --color-background-light: #{$colorLightNavy};
+  --color-background-lightest: #{$colorBlueGrey};
+  --color-foreground: #{$colorWhite};
+  --color-foreground-darker: #{$colorBlueGrey--lighter};
+  --color-foreground-darkest: #{$colorBlueWhite};
+}
+.dark{
+  --menu-bg-color: #1B1E25;
+  --top-header-back-color:#1B1E25;
+  --navigation-back-color:#35353C ;
+  --breadcrumb-back-color:#20232B;
+  --breadcrumb-text-color:#A3A6AB;
+  --breadcrumb-active-back-color:#131218;
+  --breadcrumb-active-text-color:#FFFFFF;
+  --menu-text-color:#C7CED2 ;
+  --top-header-time-color:#BCBCBC;
+}
+
+:export {
+  sideBarWidth: $sideBarWidth;
+  sideBarLogoHeight:$sideBarLogoHeight;
+  sideBarLogoExpandHeight:$sideBarLogoExpandHeight;
+  topHeaderHeight:$topHeaderHeight;
+  navigationHeight:$navigationHeight
+}
+
