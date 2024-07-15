@@ -5,7 +5,7 @@ import '@/render/styles/index.scss'
 // 引入状态管理
 import { setupStore } from '@/render/store'
 // 引入路由
-import {setupRouter} from "@/render/router";
+import { setupRouter } from "@/render/router";
 
 
 // 创建实例

@@ -6,6 +6,9 @@
     <!-- <RouterView/> -->
     <div id="app">
       <Titlebar />
+      <transition name="slide-left" mode="out-in">
+        <appDrawer v-if="viewStore.drawerOpen" />
+      </transition>
     </div>
 
 </template>
@@ -14,12 +17,17 @@
 import {computed, ref} from 'vue'
 import Titlebar from "@/render/layout/Titlebar.vue"
 import TopHeader from "@/render/layout/navBar/TopHeader.vue"
-import {useAppStore} from '@/render/store/modules/app'
+import appDrawer from '@/render/layout/drawer/Drawer.vue'
+import { useAppStore } from '@/render/store/modules/app';
+import { useViewStore } from '@/render/store/modules/view';
 import {useOpenByBrowser} from '@/render/hooks/useOpenByBrowser'
 import {loginApi} from "@/render/api/login";
 import {ipcRenderer} from "electron";
 
+
+
 const appStore = useAppStore()
+const viewStore = useViewStore()
 const {openByBrowser}=useOpenByBrowser()
 // console.log(window.electronAPI)
 

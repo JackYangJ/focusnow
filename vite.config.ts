@@ -7,7 +7,8 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Icons from 'unplugin-icons/vite'
-import IconsResolver from 'unplugin-icons/resolver'
+import IconsResolver from 'unplugin-icons/resolver';
+import optimizer from 'vite-plugin-optimizer'
 
 const root = process.cwd()
 function pathResolve(dir: string) {
@@ -77,6 +78,9 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig=>{
           Icons({
               autoInstall: true,
           }),
+          // optimizer({
+          //   electron: `const { ipcRenderer, app } import 'electron'; export { ipcRenderer, app };`
+          // }),
 
       ],
       css: {

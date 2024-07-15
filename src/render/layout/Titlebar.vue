@@ -97,8 +97,17 @@
 </template>
 
 <script setup lang="ts">
-import { ipcRenderer } from "electron";
+// import { ipcRenderer } from "electron";
 import { reactive, computed } from 'vue';
+import { useViewStore } from '@/render/store/modules/view'
+
+const store = useViewStore()
+
+// 计算属性
+
+const drawerOpen = computed(()=> store.drawerOpen)
+const minToTray = computed(()=> store.drawerOpen)
+const minToTrayOnClose = computed(()=> store.drawerOpen)
 
 
 </script>
