@@ -9,6 +9,7 @@
       <transition name="slide-left" mode="out-in">
         <appDrawer v-if="viewStore.drawerOpen" />
       </transition>
+      <appTimer />
     </div>
 
 </template>
@@ -17,7 +18,7 @@
 import {computed, ref} from 'vue'
 import Titlebar from "@/render/layout/Titlebar.vue"
 import TopHeader from "@/render/layout/navBar/TopHeader.vue"
-import appDrawer from '@/render/layout/drawer/Drawer.vue'
+import appTimer from '@/render/layout/timer/Timer.vue'
 import { useAppStore } from '@/render/store/modules/app';
 import { useViewStore } from '@/render/store/modules/view';
 import {useOpenByBrowser} from '@/render/hooks/useOpenByBrowser'
@@ -28,7 +29,9 @@ import {ipcRenderer} from "electron";
 
 const appStore = useAppStore()
 const viewStore = useViewStore()
-const {openByBrowser}=useOpenByBrowser()
+console.log('viewStore', viewStore, 'doubleCount', viewStore.doubleCount, 'drawerOpenValue', viewStore.drawerOpen);
+const {openByBrowser}=useOpenByBrowser();
+document.getElementsByTagName("body")[0].setAttribute("data-theme", 'default');
 // console.log(window.electronAPI)
 
 // if(window.electronAPI.shortCut){

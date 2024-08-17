@@ -2,3 +2,45 @@
 @import 'main';
 @import 'clear';
 @import 'element-var';
+@import "./theme/default/default.scss";
+
+$themes: (
+  default: $theme-default
+);
+
+$theme-map: null;
+// themed fuction
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+
+// third parts: defind mix order, change theme and add the rules to theme-map
+@mixin themify() {
+  @each $theme-name, $map in $themes {
+    // &  define parent element, !global define override the original
+    // !global force a local variable to become a global variable
+    // #{} is an interpolation expression of sass
+    [data-theme="#{$theme-name}"] & {
+      $theme-map: () !global;
+      //  recycle to merge to key value
+      @each $key, $value in $map {
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      // define below function themed()
+      @content;
+    }
+  }
+}
+
+// example
+// .button {
+//   @include themify() {
+//     background: themed("button-background");
+//   }
+// }

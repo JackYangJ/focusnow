@@ -1,3 +1,4 @@
+import { fa } from 'element-plus/es/locale'
 import { defineStore } from 'pinia'
 // import { localStore } from './index'
 
@@ -12,11 +13,12 @@ interface ViewState {
   minToTrayOnClose: String,
   notifications: String,
   os: String,
-  theme: String
+  theme: String,
+  count: Number
 }
 
 export const useViewStore = defineStore('view', {
-  state: ():ViewState => ({ 
+  state: ():ViewState => ({
     currentDrawer: 'appDrawerTimer',
     drawerOpen: false,
     autoStartWorkTimer: true,
@@ -27,10 +29,15 @@ export const useViewStore = defineStore('view', {
     minToTrayOnClose: '',
     notifications: '',
     os: '',
-    theme: ''
+    theme: '',
+    count: 1
   }),
   getters: {
-    // doubleCount: (state) => state.count * 2,
+    // getter name can be same with state
+    doubleCount: (state) => {
+      console.log('state.count', state.count)
+      return Number(state.count) * 2
+    },
     autoStartWorkTimer(state) {
       return state.autoStartWorkTimer
     },
@@ -41,10 +48,6 @@ export const useViewStore = defineStore('view', {
   
     currentDrawer(state) {
       return state.currentDrawer
-    },
-  
-    drawerOpen(state) {
-      return state.drawerOpen
     },
   
     alwaysOnTop(state) {

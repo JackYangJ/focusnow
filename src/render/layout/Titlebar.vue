@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <h1 class="Title">Pomotroid</h1>
+    <h1 class="Title">FocusNow</h1>
 
     <div class="Icon-group" style="position: absolute; top: 0; right: 0;">
       <div
@@ -116,15 +116,17 @@ const minToTrayOnClose = computed(()=> store.drawerOpen)
 .Icon--close,
 .Icon--minimize {
   & line {
-    stroke: var(--color-background-lightest);
-    // transition: $transitionDefault;
+    @include themify() {
+      stroke: themed("color-background-lightest");
+    }
   }
 }
 
 .Menu-line {
-  background-color: var(--color-background-lightest);
+  @include themify() {
+    background-color: themed("color-background-lightest");
+  }
   display: inline-block;
-  // transition: $transitionDefault;
   width: 20px;
   height: 2px;
   &:last-child {
@@ -136,7 +138,9 @@ const minToTrayOnClose = computed(()=> store.drawerOpen)
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 80%;
+  height: 20px;
+  margin-top: 14px;
+  margin-left: 20px;
   &.is-collapsed {
     & .Menu-line:first-child {
       transform: rotate(-45deg);
@@ -150,10 +154,17 @@ const minToTrayOnClose = computed(()=> store.drawerOpen)
 }
 
 .Title {
-  color: var(--color-short-round);
   font-size: 1rem;
   font-weight: 200;
-  padding-top: 18px;
+  padding-top: 13px;
+}
+
+.Icon-group{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85px;
+  margin-top: 12px;
 }
 
 .Titlebar {
@@ -163,6 +174,9 @@ const minToTrayOnClose = computed(()=> store.drawerOpen)
   text-align: center;
   height: 50px;
   -webkit-app-region: drag;
+  @include themify() {
+    background: themed("color-short-round");
+  }
 }
 
 .Icon-wrapper--titlebar {
